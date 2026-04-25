@@ -1,0 +1,21 @@
+<h2>Сохраненные записи</h2>
+<p>
+    Сортировка:
+    <a href="?view={{ view }}&sort=created_at">дата</a>
+    <a href="?view={{ view }}&sort=author">автор</a>
+    <a href="?view={{ view }}&sort=category">категория</a>
+</p>
+
+<table>
+    <tr><th>Дата</th><th>Заголовок</th><th>Автор</th><th>Категория</th><th>Текст</th></tr>
+    {% for note in notes %}
+        <tr>
+            <td>{{ note.created_at }}</td>
+            <td>{{ note.title }}</td>
+            <td>{{ note.author }}</td>
+            <td>{{ category_label(note.category) }}</td>
+            <td>{{ note.text|nl2br }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
